@@ -4,15 +4,24 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SuperHero.Data;
+using SuperHero.Models;
 
 namespace SuperHero.Controllers
 {
     public class CSuperHeroController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+            public CSuperHeroController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         // GET: CSuperHero
         public ActionResult Index()
         {
-            return View();
+            return View(_context.SuperHeros.ToList());
         }
 
         // GET: CSuperHero/Details/5
@@ -22,9 +31,18 @@ namespace SuperHero.Controllers
         }
 
         // GET: CSuperHero/Create
-        public ActionResult Create()
+        public ActionResult Create(CSuperHero superhero)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                _context.SuperHeros.Add(superhero);
+                _context.SaveChanges();
+                return View();
+            }
+            else
+            {
+                return Create(superhero);
+            }
         }
 
         // POST: CSuperHero/Create
