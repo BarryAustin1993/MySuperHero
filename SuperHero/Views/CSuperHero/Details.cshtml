@@ -1,0 +1,48 @@
+﻿@model SuperHero.Models.CSuperHero
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CSuperHero</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SuperHeroName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SuperHeroName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AlterEgo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AlterEgo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrimarySuperheroAbility)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrimarySuperheroAbility)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SecondarySuperHeroAbility)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SecondarySuperHeroAbility)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CatchPhrase)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CatchPhrase)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
