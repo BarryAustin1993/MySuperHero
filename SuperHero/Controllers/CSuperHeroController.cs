@@ -27,7 +27,7 @@ namespace SuperHero.Controllers
         // GET: CSuperHero/Details/5
         public ActionResult Details(int ID)
         {
-            return View();
+            return View(_context.SuperHeros.Find(ID));
         }
 
         // GET: CSuperHero/Create
